@@ -1,10 +1,11 @@
 import LoginComponent from "./components/LoginComponent";
-import { BrowserRouter } from "react-router-dom";
+import SignUpComponent from "./components/SignUpComponent";
 
 function App() {
   return (
     <div>
-      <LoginComponent />
+      {/* <LoginComponent /> */}
+      <SignUpComponent />
     </div>
   );
 }
