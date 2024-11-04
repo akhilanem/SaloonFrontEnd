@@ -1,5 +1,7 @@
 import React from 'react';
-import { Box, Button, Flex, HStack, FormControl, Input, Text, VStack, Switch } from '@chakra-ui/react';
+import { Box, Button, Flex, HStack, FormControl, Input, Text, VStack, Switch, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import {LockIcon,EmailIcon} from '@chakra-ui/icons';
+import { FaUser } from 'react-icons/fa';
 import { useState} from 'react';
 
 function LoginComponent() {
@@ -32,8 +34,18 @@ function LoginComponent() {
                     <Box maxW="360px" w="100%" p={5}>
                         <FormControl isRequired>
                             <VStack spacing={4}>
-                                <Input type="text" name="title" placeholder="Username" />
-                                <Input type="password" name="password" placeholder="Password" />
+                                <InputGroup>
+                                    <InputLeftElement>
+                                        <EmailIcon color="gray.300" />
+                                    </InputLeftElement>
+                                    <Input type="text" name="title" placeholder="Username" />
+                                </InputGroup>
+                                <InputGroup>
+                                    <InputLeftElement>
+                                        <LockIcon color="gray.300" />
+                                    </InputLeftElement>
+                                    <Input colorScheme="black" type="password" name="password" placeholder="Password" />
+                                </InputGroup>
                                 <Button type="submit" colorScheme="teal">
                                     Get Started
                                 </Button>
@@ -42,18 +54,21 @@ function LoginComponent() {
                     </Box>
 
                     {/* Additional Links */}
-                    <Flex direction="column" alignItems="center">
-                        <Flex alignItems="center" justifyContent="space-between">
-                            <Text cursor="pointer" color="teal.200">Keep Logged In</Text>
-                            <Switch colorScheme="teal" isChecked={isKeptLoggedIn} onChange={() => setIsKeptLoggedIn(!isKeptLoggedIn)} />
-                            <Text cursor="pointer" color="teal.200">Forget Password?</Text>
+                    <Box maxW="360px" w="100%" p={5}>
+                        <Flex direction="column" alignItems="center">
+                            <Flex alignItems="center" justifyContent="space-between" w="100%">
+                                <Switch colorScheme="teal" isChecked={isKeptLoggedIn} onChange={() => setIsKeptLoggedIn(!isKeptLoggedIn)} />
+                                <Text cursor="pointer" color="teal.200">Keep LoggedIn</Text>
+                                <Text cursor="pointer" color="teal.200">Forget Password?</Text>
+                            </Flex>
+                            <Flex alignItems="center" justifyContent="space-between" w="100%">
+                                <Text cursor="pointer" color="teal.200" fontSize={15}>CREATE ACCOUNT</Text>
+                                <Text cursor="pointer" color="teal.200" fontSize={15}>NEED HELP?</Text>
+                            </Flex>
                         </Flex>
-                        <Flex alignItems="center" justifyContent="space-between" w="100%" maxW="360px">
-                            <Text cursor="pointer" color="teal.200">CREATE ACCOUNT</Text>
-                            <Text cursor="pointer" color="teal.200">NEED HELP?</Text>
-                        </Flex>
-                    </Flex>
+                    </Box>
                 </Flex>
+
                 <Flex as="footer" alignItems="center" justifyContent="space-between" p={4}>
                     <HStack spacing={4}>
                         <Button>About Us</Button>
